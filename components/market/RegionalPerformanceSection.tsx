@@ -1,8 +1,8 @@
 // components/market/RegionalPerformanceSection.tsx
-import { getMarketRegions } from "@/lib/marketApi";
+import { getMarketRegionsData } from "@/lib/mockDataService";
 
-export async function RegionalPerformanceSection() {
-  const regions = await getMarketRegions();
+export function RegionalPerformanceSection() {
+  const regions = getMarketRegionsData();
 
   return (
     <section className="border border-slate-700 rounded-2xl bg-slate-900/60 p-4 md:p-5">

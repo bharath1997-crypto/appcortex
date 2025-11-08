@@ -1,8 +1,8 @@
 // components/market/CategoryHeatmapSection.tsx
-import { getMarketCategories } from "@/lib/marketApi";
+import { getMarketCategoriesData } from "@/lib/mockDataService";
 
-export async function CategoryHeatmapSection() {
-  const categories = await getMarketCategories();
+export function CategoryHeatmapSection() {
+  const categories = getMarketCategoriesData();
 
   return (
     <section className="border border-slate-700 rounded-2xl bg-slate-900/60 p-4 md:p-5">
