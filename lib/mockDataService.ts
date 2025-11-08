@@ -117,6 +117,54 @@ export function getTurnaroundApps(): ProApp[] {
   ];
 }
 
+// App Market Actions data
+export interface MarketCategory {
+  name: string;
+  newAppsToday: number;
+  avgLast7Days: number;
+  growthPercent: number;
+  note: string;
+}
+
+export function getAdvancingCategories(): MarketCategory[] {
+  return [
+    { name: "AI Tools", newAppsToday: 324, avgLast7Days: 265, growthPercent: 22, note: "Explosive entry from startups" },
+    { name: "AR Shopping", newAppsToday: 67, avgLast7Days: 61, growthPercent: 9, note: "High downloads in US" },
+    { name: "Eco Travel", newAppsToday: 45, avgLast7Days: 42, growthPercent: 6, note: "Emerging in EU regions" },
+  ];
+}
+
+export function getDecliningCategories(): MarketCategory[] {
+  return [
+    { name: "NFT Games", newAppsToday: 38, avgLast7Days: 104, growthPercent: -63, note: "Developer shift to AI utilities" },
+    { name: "Crypto Wallets", newAppsToday: 22, avgLast7Days: 58, growthPercent: -52, note: "Falling public interest" },
+    { name: "COVID Trackers", newAppsToday: 3, avgLast7Days: 16, growthPercent: -81, note: "Natural lifecycle end" },
+  ];
+}
+
+// Games Index data
+export interface GamesMetric {
+  title: string;
+  value: string;
+  change: string;
+  description: string;
+}
+
+export function getGamesIndexData() {
+  return {
+    indexValue: 812,
+    changePercent: 2.1,
+    lastUpdated: new Date().toISOString(),
+    metrics: [
+      { title: "Total Gaming Downloads Today", value: "12.4M", change: "+5.3%", description: "All platforms" },
+      { title: "New Games Added", value: "421", change: "+3.1%", description: "Across stores" },
+      { title: "Active Paid Games", value: "83K", change: "+1.9%", description: "Premium & in-app purchase games" },
+      { title: "Rising Genre", value: "Casual / Simulation", change: "—", description: "Based on daily top downloads" },
+    ] as GamesMetric[],
+    aiInsight: "Simulation games are trending in South America, while hyper-casual downloads dip slightly in Asia.",
+  };
+}
+
 export function getMarketCategoriesData(): CategoryHeatmapItem[] {
   return [
     { id: "finance", name: "Finance", appsCount: 14800, installsMillions: 520, growthPercent7d: 2.4 },

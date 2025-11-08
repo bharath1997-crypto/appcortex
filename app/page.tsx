@@ -3,6 +3,8 @@ import { LiveMetricsCards } from "@/components/home-v2/LiveMetricsCards";
 import { AiSnapshotOfDay } from "@/components/home-v2/AiSnapshotOfDay";
 import { RisingAppsOfDay } from "@/components/home-v2/RisingAppsOfDay";
 import { ProAppsList } from "@/components/home-v2/ProAppsList";
+import { AppMarketActions } from "@/components/home-v2/AppMarketActions";
+import { CortexGamesIndex } from "@/components/home-v2/CortexGamesIndex";
 import { HomeCtaSection } from "@/components/HomeCtaSection";
 
 export default function HomePage() {
@@ -22,6 +24,12 @@ export default function HomePage() {
 
       {/* 5. Pro Apps List (High Potential / Profit / Turnaround) */}
       <ProAppsList />
+
+      {/* 6. App Market Actions (Advancing / Declining Categories) */}
+      <AppMarketActions />
+
+      {/* 7. Cortex Games Index */}
+      <CortexGamesIndex />
 
       {/* Final CTA Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
