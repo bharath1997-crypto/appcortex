@@ -47,11 +47,74 @@ export function getHomeSummaryData(): HomeSummaryResponse {
     },
     stats: {
       appsTracked: 4800000,
-      downloadsToday: 12400000,
-      newAppsToday: 12847,
+      downloadsToday: 42310221,
+      newAppsToday: 5421,
       topCategory: "Finance",
     },
   };
+}
+
+// Rising apps data
+export interface RisingApp {
+  rank: number;
+  id: string;
+  name: string;
+  icon: string;
+  category: string;
+  region: string;
+  downloadChange: number;
+  percentChange: number;
+}
+
+export function getRisingAppsData(): RisingApp[] {
+  return [
+    { rank: 1, id: "ai-chat-pro", name: "AI Chat Pro", icon: "🤖", category: "AI Tools", region: "Global", downloadChange: 45230, percentChange: 128.5 },
+    { rank: 2, id: "sleep-sounds", name: "Sleep Sounds+", icon: "😴", category: "Health", region: "MENA", downloadChange: 34120, percentChange: 89.3 },
+    { rank: 3, id: "budget-master", name: "Budget Master", icon: "💰", category: "Finance", region: "India", downloadChange: 28940, percentChange: 67.8 },
+    { rank: 4, id: "photo-ai", name: "Photo AI Editor", icon: "📷", category: "Photography", region: "Global", downloadChange: 25670, percentChange: 54.2 },
+    { rank: 5, id: "learn-fast", name: "LearnFast", icon: "📚", category: "Education", region: "US", downloadChange: 21450, percentChange: 48.9 },
+    { rank: 6, id: "fit-track-pro", name: "FitTrack Pro", icon: "💪", category: "Health", region: "Europe", downloadChange: 19320, percentChange: 42.1 },
+    { rank: 7, id: "quick-recipe", name: "QuickRecipe", icon: "🍳", category: "Food", region: "Asia", downloadChange: 17890, percentChange: 38.7 },
+    { rank: 8, id: "med-reminder", name: "Med Reminder", icon: "💊", category: "Health", region: "Global", downloadChange: 15430, percentChange: 35.4 },
+    { rank: 9, id: "crypto-watch", name: "Crypto Watch", icon: "📈", category: "Finance", region: "UAE", downloadChange: 14210, percentChange: 32.6 },
+    { rank: 10, id: "language-ai", name: "Language AI", icon: "🗣️", category: "Education", region: "Global", downloadChange: 12890, percentChange: 29.8 },
+  ];
+}
+
+// Pro Apps List data
+export interface ProApp {
+  rank: number;
+  name: string;
+  icon: string;
+  category: string;
+  downloads: string;
+  metric: string; // Growth/ARPU/Recovery
+  trend: string;
+  aiInsight: string;
+}
+
+export function getHighPotentialApps(): ProApp[] {
+  return [
+    { rank: 1, name: "Duolingo", icon: "🦉", category: "Education", downloads: "520M", metric: "+8.3%", trend: "🔥 Trending", aiInsight: "Strong organic growth in Asia" },
+    { rank: 2, name: "Calm", icon: "😌", category: "Health", downloads: "350M", metric: "+6.1%", trend: "↑ Growing", aiInsight: "Increased retention in US" },
+    { rank: 3, name: "Canva", icon: "🎨", category: "Productivity", downloads: "420M", metric: "+4.2%", trend: "↑ Stable", aiInsight: "Frequent updates, stable churn" },
+  ];
+}
+
+export function getProfitEngineApps(): ProApp[] {
+  return [
+    { rank: 1, name: "Tinder", icon: "💖", category: "Lifestyle", downloads: "60M", metric: "$2.43 ARPU", trend: "↑ Stable", aiInsight: "High retention and premium conversions" },
+    { rank: 2, name: "Calm Premium", icon: "😴", category: "Health", downloads: "18M", metric: "$1.95 ARPU", trend: "↑ Growing", aiInsight: "New pricing strategy performing well" },
+    { rank: 3, name: "Headspace", icon: "🧘", category: "Wellness", downloads: "14M", metric: "$1.72 ARPU", trend: "↑ Mild Rise", aiInsight: "Corporate subscriptions expanding" },
+  ];
+}
+
+export function getTurnaroundApps(): ProApp[] {
+  return [
+    { rank: 1, name: "Telegram", icon: "✈️", category: "Social", downloads: "900M", metric: "3 updates", trend: "🟢 Recovery", aiInsight: "Feature recovery driving growth" },
+    { rank: 2, name: "Zoom", icon: "📹", category: "Business", downloads: "500M", metric: "2 updates", trend: "🟢 Positive", aiInsight: "UI redesign success" },
+    { rank: 3, name: "Reddit", icon: "👽", category: "Social", downloads: "250M", metric: "1 update", trend: "🟡 Moderate", aiInsight: "API adjustments payoff" },
+  ];
 }
 
 export function getMarketCategoriesData(): CategoryHeatmapItem[] {
