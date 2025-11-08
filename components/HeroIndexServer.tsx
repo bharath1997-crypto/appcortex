@@ -1,9 +1,9 @@
 // components/HeroIndexServer.tsx
-import { getHomeSummary } from "@/lib/homeApi";
+import { getHomeSummaryData } from "@/lib/mockDataService";
 
-export default async function HeroIndexServer() {
-  // Fetch data from backend API (server-side)
-  const data = await getHomeSummary();
+export default function HeroIndexServer() {
+  // Get data directly from service (no HTTP calls needed)
+  const data = getHomeSummaryData();
   const { index, stats } = data;
 
   const isUp = index.changePercent >= 0;
