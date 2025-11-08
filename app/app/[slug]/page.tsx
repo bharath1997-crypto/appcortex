@@ -1,6 +1,6 @@
 // app/app/[slug]/page.tsx
 
-import { getExploreApps } from "@/lib/appsApi";
+import { getExploreAppsData } from "@/lib/mockDataService";
 import { Card, Section, Badge } from "@/components/ui";
 import Link from "next/link";
 
@@ -8,8 +8,8 @@ interface AppDetailPageProps {
   params: { slug: string };
 }
 
-export default async function AppDetailPage({ params }: AppDetailPageProps) {
-  const { items } = await getExploreApps();
+export default function AppDetailPage({ params }: AppDetailPageProps) {
+  const { items } = getExploreAppsData();
   const app = items.find((a) => a.slug === params.slug);
 
   if (!app) {

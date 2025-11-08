@@ -1,5 +1,5 @@
 // app/explore/page.tsx
-import { getExploreApps } from "@/lib/appsApi";
+import { getExploreAppsData } from "@/lib/mockDataService";
 import { ExploreHero } from "@/components/explore/ExploreHero";
 import { TrendingKeywords } from "@/components/explore/TrendingKeywords";
 import { EnhancedAppCard } from "@/components/explore/EnhancedAppCard";
@@ -13,9 +13,9 @@ interface ExplorePageProps {
   searchParams?: { q?: string };
 }
 
-export default async function ExplorePage({ searchParams }: ExplorePageProps) {
+export default function ExplorePage({ searchParams }: ExplorePageProps) {
   const query = searchParams?.q ?? "";
-  const { items: apps, total } = await getExploreApps(query);
+  const { items: apps, total } = getExploreAppsData(query);
 
   return (
     <div className="space-y-8 pb-10 animate-fade-up">

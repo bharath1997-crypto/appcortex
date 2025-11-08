@@ -1,6 +1,6 @@
 // app/insights/[slug]/page.tsx
 
-import { getInsights } from "@/lib/insightsApi";
+import { getInsightsData } from "@/lib/mockDataService";
 import { Card, Section, Badge } from "@/components/ui";
 import Link from "next/link";
 
@@ -8,8 +8,8 @@ interface InsightDetailPageProps {
   params: { slug: string };
 }
 
-export default async function InsightDetailPage({ params }: InsightDetailPageProps) {
-  const { items } = await getInsights();
+export default function InsightDetailPage({ params }: InsightDetailPageProps) {
+  const items = getInsightsData();
   const insight = items.find((i) => i.slug === params.slug);
 
   if (!insight) {
