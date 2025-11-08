@@ -17,7 +17,9 @@ export interface ExploreAppsResponse {
 }
 
 export async function getExploreApps(q?: string): Promise<ExploreAppsResponse> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const baseUrl = process.env.VERCEL_URL 
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const params = q ? `?q=${encodeURIComponent(q)}` : "";
   
   const res = await fetch(`${baseUrl}/api/apps${params}`, {
