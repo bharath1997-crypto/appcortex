@@ -3,7 +3,7 @@
 interface SectionProps {
   title?: string;
   description?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 
