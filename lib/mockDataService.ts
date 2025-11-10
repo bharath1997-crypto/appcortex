@@ -165,6 +165,258 @@ export function getGamesIndexData() {
   };
 }
 
+// Opportunity Finder data
+export interface AppOpportunity {
+  id: string;
+  title: string;
+  category: string;
+  region: string;
+  difficulty: "Low" | "Medium" | "High";
+  potentialScore: number; // 0-100
+  monthlySearches: number;
+  existingApps: number;
+  avgDownloads: string;
+  avgRating: number;
+  keyInsights: string[];
+  gapAnalysis: {
+    demandLevel: "High" | "Medium" | "Low";
+    competitionLevel: "High" | "Medium" | "Low";
+    marketSaturation: number; // 0-100%
+    growthTrend: number; // percentage
+  };
+  suggestedFeatures: string[];
+  monetizationPotential: {
+    model: string;
+    estimatedARPU: string;
+    timeToProfit: string;
+  };
+  targetAudience: string;
+  marketSize: string;
+  timeframe: string;
+  requiredSkills: string[];
+  estimatedDevTime: string;
+  investmentRequired: string;
+}
+
+export function getOpportunities(): AppOpportunity[] {
+  return [
+    {
+      id: "voice-fitness-coach",
+      title: "AI Voice Fitness Coach for Seniors",
+      category: "Health & Fitness",
+      region: "India, Southeast Asia",
+      difficulty: "Medium",
+      potentialScore: 94,
+      monthlySearches: 125000,
+      existingApps: 12,
+      avgDownloads: "50K-100K",
+      avgRating: 3.8,
+      keyInsights: [
+        "Voice-based fitness apps grew +42% in India last month",
+        "Senior population (60+) growing 3.5% annually in target regions",
+        "Low competition with most apps targeting younger demographics",
+        "High willingness to pay for health solutions in this segment"
+      ],
+      gapAnalysis: {
+        demandLevel: "High",
+        competitionLevel: "Low",
+        marketSaturation: 23,
+        growthTrend: 42
+      },
+      suggestedFeatures: [
+        "Hands-free voice commands",
+        "Large text UI for accessibility",
+        "Medical condition customization",
+        "Progress sharing with family",
+        "Offline exercise library"
+      ],
+      monetizationPotential: {
+        model: "Freemium + Family subscription",
+        estimatedARPU: "$8-12/month",
+        timeToProfit: "8-12 months"
+      },
+      targetAudience: "Adults 55-75 years, middle-income families",
+      marketSize: "45M potential users in India alone",
+      timeframe: "Launch window: Next 6 months (optimal)",
+      requiredSkills: ["Voice UI", "Health tracking APIs", "Accessibility design"],
+      estimatedDevTime: "4-6 months with 2-person team",
+      investmentRequired: "$15K-25K (including marketing)"
+    },
+    {
+      id: "micro-learning-regional",
+      title: "5-Minute Regional Language Learning",
+      category: "Education",
+      region: "MENA, Africa",
+      difficulty: "Low",
+      potentialScore: 89,
+      monthlySearches: 89000,
+      existingApps: 8,
+      avgDownloads: "100K-500K",
+      avgRating: 4.2,
+      keyInsights: [
+        "Micro-learning apps (under 5 min/session) show 68% better retention",
+        "Regional language demand up 31% in MENA region",
+        "Duolingo-style apps lack focus on Arabic dialects and African languages",
+        "Corporate training market hungry for quick-learning solutions"
+      ],
+      gapAnalysis: {
+        demandLevel: "High",
+        competitionLevel: "Medium",
+        marketSaturation: 35,
+        growthTrend: 31
+      },
+      suggestedFeatures: [
+        "Dialect-specific lessons (Egyptian Arabic, Gulf Arabic, etc.)",
+        "Offline-first for low-connectivity regions",
+        "Gamification with cultural context",
+        "Business phrase packs",
+        "WhatsApp integration for practice"
+      ],
+      monetizationPotential: {
+        model: "Free + Premium courses + B2B licensing",
+        estimatedARPU: "$5-8/month (B2C), $50-100/seat (B2B)",
+        timeToProfit: "6-9 months"
+      },
+      targetAudience: "Expats, business travelers, local students",
+      marketSize: "120M Arabic speakers, 80M African language learners",
+      timeframe: "Launch window: Next 4 months",
+      requiredSkills: ["Content creation", "Audio processing", "Gamification"],
+      estimatedDevTime: "3-5 months with content partnerships",
+      investmentRequired: "$10K-20K"
+    },
+    {
+      id: "sleep-therapy-subscription",
+      title: "Prescription Sleep Therapy with Insurance",
+      category: "Health & Wellness",
+      region: "USA, Europe",
+      difficulty: "High",
+      potentialScore: 87,
+      monthlySearches: 156000,
+      existingApps: 24,
+      avgDownloads: "500K-1M",
+      avgRating: 4.1,
+      keyInsights: [
+        "Sleep disorder diagnoses up 28% post-pandemic",
+        "Insurance companies now covering digital therapeutics",
+        "Existing apps are B2C only - huge B2B2C opportunity",
+        "FDA approval path now clearer for digital sleep aids"
+      ],
+      gapAnalysis: {
+        demandLevel: "High",
+        competitionLevel: "High",
+        marketSaturation: 67,
+        growthTrend: 18
+      },
+      suggestedFeatures: [
+        "FDA-compliant sleep tracking",
+        "Insurance claim integration",
+        "Provider dashboard for doctors",
+        "Clinical trial data integration",
+        "CBT-I (Cognitive Behavioral Therapy for Insomnia) protocol"
+      ],
+      monetizationPotential: {
+        model: "Insurance reimbursement + Employer plans",
+        estimatedARPU: "$40-60/month (via insurance)",
+        timeToProfit: "18-24 months (after FDA clearance)"
+      },
+      targetAudience: "Diagnosed sleep disorder patients, 30-60 years",
+      marketSize: "70M Americans with chronic sleep issues",
+      timeframe: "Launch window: 12-18 months (regulatory path)",
+      requiredSkills: ["Health tech compliance", "Medical device software", "Insurance integration"],
+      estimatedDevTime: "12-18 months with regulatory consulting",
+      investmentRequired: "$150K-300K (includes FDA process)"
+    },
+    {
+      id: "ar-furniture-local",
+      title: "AR Furniture Shopping for Local Stores",
+      category: "Shopping & AR",
+      region: "Southeast Asia, India",
+      difficulty: "Medium",
+      potentialScore: 85,
+      monthlySearches: 67000,
+      existingApps: 15,
+      avgDownloads: "10K-50K",
+      avgRating: 3.9,
+      keyInsights: [
+        "AR shopping apps grew 9% globally, but only 3 serve local furniture stores",
+        "Small furniture businesses lack IKEA-style AR tools",
+        "High margin opportunity - B2B SaaS for retailers",
+        "Low competition in tier 2-3 cities"
+      ],
+      gapAnalysis: {
+        demandLevel: "Medium",
+        competitionLevel: "Low",
+        marketSaturation: 18,
+        growthTrend: 24
+      },
+      suggestedFeatures: [
+        "Simple AR measurement tool",
+        "Catalog management for store owners",
+        "WhatsApp catalog integration",
+        "Multi-language support",
+        "Offline catalog browsing"
+      ],
+      monetizationPotential: {
+        model: "SaaS for retailers ($50-200/month) + Consumer app (free)",
+        estimatedARPU: "$80/month per retailer",
+        timeToProfit: "10-14 months"
+      },
+      targetAudience: "Local furniture retailers + Home buyers 25-45",
+      marketSize: "500K+ furniture retailers in India alone",
+      timeframe: "Launch window: Next 6 months",
+      requiredSkills: ["ARCore/ARKit", "3D modeling", "B2B sales"],
+      estimatedDevTime: "5-7 months",
+      investmentRequired: "$20K-35K"
+    },
+    {
+      id: "eco-carbon-tracking",
+      title: "Personal Carbon Footprint Tracker with Rewards",
+      category: "Lifestyle & Environment",
+      region: "Europe, USA",
+      difficulty: "Low",
+      potentialScore: 82,
+      monthlySearches: 94000,
+      existingApps: 18,
+      avgDownloads: "50K-100K",
+      avgRating: 4.0,
+      keyInsights: [
+        "ESG awareness at all-time high, especially in EU",
+        "Carbon credit market growing 40% YoY",
+        "Existing apps lack reward mechanisms",
+        "Corporate sustainability goals creating B2B opportunity"
+      ],
+      gapAnalysis: {
+        demandLevel: "Medium",
+        competitionLevel: "Medium",
+        marketSaturation: 42,
+        growthTrend: 26
+      },
+      suggestedFeatures: [
+        "Automated carbon tracking via bank/credit card integration",
+        "Green challenge gamification",
+        "Carbon credit marketplace",
+        "Corporate team challenges",
+        "Impact visualization"
+      ],
+      monetizationPotential: {
+        model: "B2C Freemium + B2B Corporate licenses",
+        estimatedARPU: "$6-9/month (B2C), $15/employee (B2B)",
+        timeToProfit: "8-12 months"
+      },
+      targetAudience: "Environmentally conscious millennials & Gen Z, Corporate CSR teams",
+      marketSize: "200M+ eco-conscious consumers in target markets",
+      timeframe: "Launch window: Next 3 months (trend is hot)",
+      requiredSkills: ["Financial API integration", "Carbon calculation algorithms", "Gamification"],
+      estimatedDevTime: "4-6 months",
+      investmentRequired: "$12K-22K"
+    }
+  ];
+}
+
+export function getOpportunityById(id: string): AppOpportunity | undefined {
+  return getOpportunities().find(opp => opp.id === id);
+}
+
 export function getMarketCategoriesData(): CategoryHeatmapItem[] {
   return [
     { id: "finance", name: "Finance", appsCount: 14800, installsMillions: 520, growthPercent7d: 2.4 },
